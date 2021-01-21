@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-title>
+            Shopping list
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-list>
+        <ion-item *ngFor="let shopitem of ShopItems">
+            <ion-label>{{ shopitem.name }}</ion-label>
+            <ion-button [routerLink]="['/', 'tabs', 'shopping-list', shopitem.shopId, 'details']">See All</ion-button>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="begin" slot="fixed">
+        <ion-fab-button (click)="presentAddModal()">
+            <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

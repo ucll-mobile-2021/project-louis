@@ -1,0 +1,18 @@
+<ion-header translucent>
+    <ion-toolbar color="primary">
+        <ion-title>Add product to shopping list</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+    <ion-item class="ion-padding-top">
+        <ion-label>Product</ion-label>
+        <ion-select [(ngModel)]="selectedProductId">
+            <ion-select-option *ngFor="let product of products"
+                               [value]="product.id">{{product.name}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-button expand="block" (click)="addProduct()">Add product</ion-button>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header translucent>
+    <ion-toolbar color="primary">
+        <ion-title>Add product</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+    <ion-item class="ion-padding-top">
+        <ion-label>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="product.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-top">
+        <ion-label>Shop</ion-label>
+        <ion-select value="dog" [(ngModel)]="product.shop">
+            <ion-select-option *ngFor="let shop of shops" [value]="shop.id">{{shop.name}}</ion-select-option>
+          </ion-select>
+    </ion-item>
+    <ion-button expand="block" (click)="addProduct()">Add product</ion-button>
+</ion-content>

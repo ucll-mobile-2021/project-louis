@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-title>
+            Products
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-content>
+        <ion-list>
+            <ion-item *ngFor="let product of products">
+                <ion-label>{{ product.name }}</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="presentAddModal()">
+            <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

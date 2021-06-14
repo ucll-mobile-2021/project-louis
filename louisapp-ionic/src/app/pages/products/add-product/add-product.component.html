@@ -17,5 +17,6 @@
             <ion-select-option *ngFor="let shop of shops" [value]="shop.id">{{shop.name}}</ion-select-option>
           </ion-select>
     </ion-item>
+    <ion-button *ngIf="!isPictureTaken" (click)="takePicture()">Take picture</ion-button><ion-label *ngIf="isPictureTaken">Picture selected</ion-label>
     <ion-button expand="block" (click)="addProduct()">Add product</ion-button>
 </ion-content>

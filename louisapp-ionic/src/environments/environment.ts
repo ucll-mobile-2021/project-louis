@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:7000',
+  // apiUrl: 'http://10.0.2.2:7000',
+  apiUrl: 'http://127.0.0.1:7000',
   mapsKey: 'AIzaSyBspEcfdCiPHqMSegwoQ1Xkov3zn4LpYzw'
 };
 

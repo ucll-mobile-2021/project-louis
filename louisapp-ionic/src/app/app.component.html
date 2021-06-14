@@ -1,3 +1,23 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet *ngIf="isLoggedIn"></ion-router-outlet>
+  <ion-fab *ngIf="isLoggedIn" vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+  <ion-content *ngIf="!isLoggedIn" fullscreen>
+    <ion-label style="color: red;">{{ errorMessage }}</ion-label>
+    <ng-container *ngIf="!isLoggedIn && isRegisterOpened">
+      <ion-input type="text" [(ngModel)]="username" placeholder="Username" name="username"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
+      <ion-button (click)="register()">Register</ion-button>
+      <ion-button (click)="isRegisterOpened = false">Go to login</ion-button>
+    </ng-container>
+    <ng-container *ngIf="!isLoggedIn && !isRegisterOpened">
+      <ion-input type="text" [(ngModel)]="username" placeholder="Username"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
+      <ion-button (click)="login()">Login</ion-button>
+      <ion-button (click)="isRegisterOpened = true">Go to register</ion-button>
+    </ng-container>
+  </ion-content>
 </ion-app>

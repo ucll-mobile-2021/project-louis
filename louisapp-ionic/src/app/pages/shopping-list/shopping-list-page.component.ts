@@ -31,6 +31,11 @@ export class ShoppingListPage implements OnInit {
         }));
     }
 
+     doRefresh($event: any) {
+        this.refresh();
+        $event.target.complete();
+    }
+
     async presentAddModal() {
         const modal = await this.modalController.create({
             component: AddShoppingListProductComponent

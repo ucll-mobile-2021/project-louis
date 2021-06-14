@@ -12,6 +12,7 @@ import {AddShopComponent} from "./add-shop/add-shop.component";
 export class ShopsPage implements OnInit {
   public shops: Shop[];
 
+  public currentError = "";
   constructor(private shopService: ShopService,
               private modalController: ModalController) {}
 
@@ -20,7 +21,7 @@ export class ShopsPage implements OnInit {
   }
 
   private refresh(): void {
-    this.shopService.getAll().subscribe(shops => this.shops = shops);
+    this.shopService.getAll().subscribe(shops => this.shops = shops, (c) => this.currentError = JSON.stringify(c));
   }
 
   async presentAddShopModal() {
